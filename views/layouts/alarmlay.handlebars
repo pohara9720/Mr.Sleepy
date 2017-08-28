@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+    .container {
+        background-color: #333;
+        height: 100vh;
+        width: 100% !important;
+    }
+
+    body {
+        width: 100%;
+    }
+
+    #clock,
+    #date {
+        color: white;
+    }
+
+    #Email,
+    #Password,
+    #siEmail,
+    #siPassword {
+        background-color: grey;
+    }
+
+    .side-nav {
+        background: #7d7e7d;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7d7e7d), color-stop(100%, #0e0e0e));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* IE10+ */
+        background: linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e', GradientType=0);
+    }
+
+    h1 {
+        font-family: 'Courgette', cursive;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    h4 {
+        font-family: 'Poiret One', cursive;
+        font-size: 25px !important;
+        margin-bottom: 20px;
+    }
+
+    .sideHead {
+        font-family: 'Courgette', cursive;
+        color: white;
+        font-size: 20px;
+        margin-bottom: 80px;
+    }
+
+    .neon-effect {
+        text-align: center;
+        color: #ffffff;
+        text-shadow: 0 0 10px #ffffff,
+        0 0 20px #ffffff,
+        0 0 30px #ffffff,
+        0 0 40px #228DFF,
+        0 0 70px #228DFF,
+        0 0 80px #228DFF,
+        0 0 100px #228DFF,
+        0 0 150px #228DFF;
+    }
+
+    #date {
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 10px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    #clock {
+        font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 40px;
+        text-rendering: optimizeLegibility;
+    }
+
+    .deepshadow {
+        color: #e0dfdc;
+        background-color: #333;
+        letter-spacing: .1em;
+        text-shadow: 0 -1px 0 #fff,
+        0 1px 0 #2e2e2e,
+        0 2px 0 #2c2c2c,
+        0 3px 0 #2a2a2a,
+        0 4px 0 #282828,
+        0 5px 0 #262626,
+        0 6px 0 #242424,
+        0 7px 0 #222,
+        0 8px 0 #202020,
+        0 9px 0 #1e1e1e,
+        0 10px 0 #1c1c1c,
+        0 11px 0 #1a1a1a,
+        0 12px 0 #181818,
+        0 13px 0 #161616,
+        0 14px 0 #141414,
+        0 15px 0 #121212,
+        0 22px 30px rgba(0, 0, 0, 0.9);
+    }
+
+    .switch {
+        margin-top: 15px;
+        margin-left: -40px;
+    }
+
+    #alarm-container {
+        width: 100% !important;
+        height: 50% !important;
+        overflow-y: auto;
+    }
+
+    nav {
+        background-color: #333 !important;
+        position: absolute;
+        bottom: 0px !important;
+        width: 100%;
+    }
+
+    #header {
+        margin-top: -20px;
+        margin-bottom: -10px !important;
+    }
+
+
+
+    h6 {
+        font-size: 30px !important;
+        margin-top: 10px;
+        color: black;
+        font-family: 'Heebo', sans-serif;
+    }
+
+    p {
+        font-family: 'Heebo', sans-serif;
+        color: black;
+        font-size: 15px;
+        margin-top: -10px;
+    }
+
+    .remove {
+        color: red;
+        margin-top: 5px;
+        margin-left: 8px;
+    }
+
+
+    .edit {
+        color: green;
+        margin-top: 10px;
+        margin-left: 8px;
+    }
+
+    #edits {
+        display: inline !important;
+    }
+
+    #ig {
+        width: 50px;
+        height: 50px;
+    }
+
+    .black {
+        /*        margin-top: -30px;
+*/
+        height: 70px;
+        background: #7d7e7d;
+        /* Old browsers */
+        background: -moz-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7d7e7d), color-stop(100%, #0e0e0e));
+        /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* IE10+ */
+        background: linear-gradient(top, #7d7e7d 0%, #0e0e0e 100%);
+        /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e', GradientType=0);
+        /* IE6-9 */
+    }
+
+    input {
+        border-bottom: none !important;
+        font-size: 100px;
+        margin-left: -20px !important;
+        color: white !important;
+        box-shadow: none !important;
+    }
+
+    .input-field .prefix {
+        color: white !important;
+    }
+
+    .input-field .prefix.active {
+        color: white !important;
+    }
+
+    .guy {
+        color: white;
+    }
+
+    label {
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+
+    .input {
+        box-shadow: none;
+    }
+
+    #alarmDiv {
+        position: absolute;
+        width: 103%;
+    }
+
+    #addAlarm,
+    #editAlarm,
+    #subtn,
+    #sibtn,
+    #signIn,
+    #signUp {
+        background-color: transparent;
+    }
+
+    .space {
+        margin-bottom: 3px !important;
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Dosis|Fjalla+One|Julius+Sans+One|Quattrocento|Quicksand|Raleway|Roboto|Zilla+Slab+Highlight" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Poiret+One|Questrial|Heebo" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
+    <!--     <link rel="stylesheet" type="text/css" href="../styles.css">
+ -->
+    <meta charset="UTF-8">
+    <title>Alarm Clock</title>
+</head>
+
+<body>
+    {{{ body }}}
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/js/materialize.min.js"></script>
+<!--     <script type="text/javascript" src="../app.js"></script>
+ -->
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".button-collapse").sideNav();
+    $('.modal').modal();
+
+    $('select').material_select();
+
+    //////////////////SWITCH CSS AND TRUE AND FALSE LOGIC////////////////
+
+    $('#mySwitch').prop('checked', true)
+
+    function switches() {
+        var switchOff = $('#mySwitch').prop('checked');
+        var switchOn = $('#mySwitch').not('checked');
+        if (switchOff) {
+            console.log(false);
+            $("#alarmTime").removeClass("neon-effect");
+            $("#alarmLabel").removeClass("neon-effect");
+        } else {
+            console.log(true);
+            $("#alarmTime").addClass("neon-effect");
+            $("#alarmLabel").addClass("neon-effect");
+        }
+    }
+    $(".lever").on("click", function() {
+        switches();
+    })
+    //////////////////SWITCH CSS AND TRUE AND FALSE LOGIC////////////////
+
+    //////////////////ALARM SOUNDS////////////////
+
+    var alarmTimes = [];
+    // var sound = new Audio("alarm.wav");
+    // sound.loop = true;
+
+    //////////////////ALARM SOUNDs////////////////
+    //////////Modal Function////////////////
+    function modalOpen() {
+        $('#modal1').modal('open');
+    }
+    //////////////////DATE DISPLAY////////////////
+
+    function date() {
+        var getDate = new Date();
+        var year = getDate.getFullYear();
+        var dayOfMonth = getDate.getDate();
+        var months = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        var month = months[getDate.getMonth()];
+        var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        var day = days[getDate.getDay()];
+
+
+        var dateDisplay = day + ", " + month + " " + dayOfMonth + ", " + year;
+
+        console.log(dateDisplay);
+        $("#date").html(dateDisplay);
+        console.log(day);
+    }
+    date();
+
+    //////////////////DATE DISPLAY////////////////
+
+
+    //////////////////GET TIME ////////////////
+    var clockDisplay = $("#clock");
+
+
+    var currentTime = setInterval(function() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var aOrp = "AM";
+
+        if (hours === 0) {
+            hours = 12;
+        }
+        if (hours > 12) {
+            hours = hours - 12;
+            aOrp = "PM";
+        }
+        if (hours < 10) {
+            hours = "0" + hours;
+        }
+        if (minutes < 10) {
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10) {
+            seconds = "0" + seconds;
+        }
+
+        time = hours + ":" + minutes + ":" + seconds + " " + aOrp;
+        $(clockDisplay).html(time);
+
+    });
+    //////////////////Get TIME////////////////
+
+
+    //////////////////ADD ALARM ////////////////
+    var newAlarmTime = "";
+    $(document).on('click', '#addAlarm', function(e) {
+        var addHour = $("#aHour").val();
+        var addMinute = $("#aMinute").val()
+        var AM = $('input[id="AAM"]:checked').val();
+        var PM = $('input[id="APM"]:checked').val();
+        var addTime = addHour + ":" + addMinute + ":" + "00"
+
+        if (AM === "on") {
+            addTime = addTime + " " + "AM"
+        } else {
+            addTime = addTime + " " + "PM"
+        }
+        newAlarmTime = addTime;
+        console.log(newAlarmTime);
+
+        console.log(alarmTimes);
+
+        var label = $("#addlabelInput").val();
+        var charity = $("#charityInput").val();
+        var repeat = $("#repeatInput").val();
+        // alarmTimes.push(time);
+        var newAlarm = {
+            time: addTime,
+            AM: AM,
+            PM: PM,
+            label: label,
+            charity: charity,
+            repeat: repeat
+        }
+        alarmTimes.push(newAlarm);
+        
+        if (repeat == 2) {
+            console.log("THIS IS JUST ONE FUNCTION NEED TO DO THIS ")
+        } else if (repeat == 1) {
+            setInterval(function() { alarmSet(newAlarm); }, 1000);
+
+        } else {
+
+            
+            setInterval(function() { alarmSetWithRepeats(newAlarm); }, 1000);
+            console.log(newAlarm);
+            alarmDivs(newAlarm);
+            multipleAlarms();
+
+            // console.log("date value", repeat[0]);
+
+
+        }
+    });
+    //////////////////ADD ALARM////////////////
+
+    /////////////////CREATE ALARM HTML/////////////////
+    function alarmDivs(param) {
+        $("#alarm-container").prepend(`<div class='black row space'>
+        <div class="col s2">
+          <span><i id="delete" class="remove medium material-icons">remove_circle_outline</i></span>
+        </div>
+          <div class="col s8">
+         <center><h6 id="alarmTime" class="neon-effect">${param.time}</h6></center>
+        <center><p id="alarmLabel" class="neon-effect">${param.label}</p></center>
+          </div>
+         <div class="col s2">
+            <div class="switch">
+                <label> 
+                    <input id="mySwitch" type="checkbox">
+                        <span class="lever"></span>
+                </label>
+                </div>
+         </div>
+
+        </div>`);
+    }
+
+    /////////////////CREATE ALARM HTML/////////////////
+
+
+    //////////SNOOZE BUTTON//////////////
+
+    $("#Snooze").on("click", function() {
+        setTimeout(modalOpen, 5000);
+    });
+
+    //////////SNOOZE BUTTON//////////////
+
+
+    //////////////////SETTING ALARM ONCE////////////////
+
+    function alarmSet(param) {
+        var date = new Date();
+
+        var hours = (12 - (date.getHours()));
+        // var hours = date.getHours();
+
+        var minutes = date.getMinutes();
+
+        var seconds = date.getSeconds();
+
+        var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
+
+
+        //convert military time to standard time
+
+        if (hours < 0) {
+            hours = hours * -1;
+        } else if (hours == 00) {
+            hours = 12;
+        } else {
+            hours = hours;
+        }
+        var currentTime = $("#clock").text();
+        if (param.time === currentTime) {
+            modalOpen();
+        }
+    }
+
+    function multipleAlarms() {
+        for (let i = 0; i < alarmTimes.length; i++) {
+            setInterval(function() {
+                alarmSetWithRepeats(alarmTimes[i]);
+            }, 1000);
+            console.log(alarmTimes);
+        }
+    }
+    multipleAlarms();
+
+    //////////////////SETTING ALARM AND MULTIPLE ALARMS ////////////////
+    function alarmSetWithRepeats(param) {
+
+        var date = new Date();
+
+        var hours = (12 - (date.getHours()));
+        // var hours = date.getHours();
+
+        var minutes = date.getMinutes();
+
+        var seconds = date.getSeconds();
+
+        var ampm = (date.getHours()) < 12 ? 'AM' : 'PM';
+
+
+        //convert military time to standard time
+
+        if (hours < 0) {
+            hours = hours * -1;
+        } else if (hours == 00) {
+            hours = 12;
+        } else {
+            hours = hours;
+        }
+        var currentTime = $("#clock").text();
+
+
+        for (let i = 0; i < param.repeat.length; i++) {
+
+            var alarmDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var alarmDay = alarmDays[date.getDay()];
+            var repeatDay = param.repeat[i];
+
+            if (param.time === currentTime && repeatDay === alarmDay) {
+                modalOpen();
+            }
+        }
+
+
+    }
+
+    function multipleAlarms() {
+        for (let i = 0; i < alarmTimes.length; i++) {
+            setInterval(function() {
+                alarmSetWithRepeats(alarmTimes[i]);
+            }, 1000);
+            console.log(alarmTimes);
+        }
+    }
+    multipleAlarms();
+
+    //////////////////SETTING ALARM TO REPEAT WHEN SELECTED ////////////////
+
+    // function repeatAndAlarm() {
+    //     var repeatDay = $("#repeatInfo").val();
+    //     var alarmDate = new Date();
+    //     var alarmDays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    //     var currentDay = alarmDays[alarmDate.getDay()];
+    //     console.log(currentDay);
+    //     console.log(repeatDay);
+
+    // }
+    // repeat();
+
+
+
+    //////////////////SETTING ALARM TO REPEAT WHEN SELECTED////////////////
+
+    //////////////////////EDIT////////////////////////
+    $("#editnav").on("click", function() {
+        $("#delete").hide();
+    });
+
+
+
+
+});
+</script>
